@@ -16,6 +16,10 @@ int print_string(va_list ap);
 int print_decint(va_list arg);
 int specifier1(const char *format, va_list ap);
 int print_binary(va_list ap);
+int print_unsign(va_list ap);
+int print_octal(va_list ap);
+int print_hexlower(va_list ap);
+int print_hexupper(va_list ap);
 /********BUFFER HANDLING**********/
 /**MACROS***/
 
