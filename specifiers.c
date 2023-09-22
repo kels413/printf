@@ -125,6 +125,10 @@ int specifier1(const char *format, va_list ap)
 			{
 				count += print_decint(ap);
 			}
+			else if (*format == 'b')
+			{
+				count += print_binary(ap);
+			}
 		}
 		format++;
 	}

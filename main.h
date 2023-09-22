@@ -15,7 +15,7 @@ int my_putchar(char c);
 int print_string(va_list ap);
 int print_decint(va_list arg);
 int specifier1(const char *format, va_list ap);
-
+int print_binary(va_list ap);
 /********BUFFER HANDLING**********/
 /**MACROS***/
 
