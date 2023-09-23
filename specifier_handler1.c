@@ -82,55 +82,72 @@ int print_decint(va_list arg)
 	return (len2);
 }
 
-/***************************SPECIFIER FUNCTION.****************************/
-
 /**
- * specifier1 - Format and print data according to a format specifier.
- *
- * @format: A format string containing format specifiers.
- * @ap: A va_list containing the arguments to be formatted and printed.
- *
- * Return: The total number of characters printed.
+ * print_binary - convert decimal to binary. Base 10 to Base 2
+ * @ap: argument pointer
+ * Description: reverse the modulo on recursive division
+ * Return: length of the binary number
  */
 
-int specifier1(const char *format, va_list ap)
+int print_binary(va_list ap)
+{
+	unsigned int n = va_arg(ap, int), binary[1024];
+
+	int i = 0, j = 0;
+
+	if (n == 0)
+	{
+		my_putchar('0');
+		return (1);
+	}
+	while (n > 0)
+	{
+		binary[i] = n % 2;
+		n /= 2;
+		i++;
+	}
+	for (j = i - 1; j >= 0; j--)
+	{
+		my_putchar(binary[j] + '0');
+	}
+	return (i);
+}
+
+/**
+ * specifiers_1 - Process format specifiers and print corresponding values
+ *
+ * @format: The format string containing the specifier
+ * @...: Additional arguments based on the specifier
+ *
+ * Return: The number of characters printed
+ */
+
+int specifiers_1(const char *format, va_list ap)
 {
 	int count = 0;
 
-	while (*format)
+	if (*format == 'c')
 	{
-		if (*format != '%')
-		{
-			my_putchar(*format);
-			count++;
-		}
-		else
-		{
-			format++;
-
-			if (*format == 'c')
-			{
-				count += print_character(ap);
-			}
-			else if (*format == 's')
-			{
-				count += print_string(ap);
-			}
-			else if (*format == '%')
-			{
-				count += my_putchar('%');
-
-			}
-			else if (*format == 'd' || *format == 'i')
-			{
-				count += print_decint(ap);
-			}
-			else if (*format == 'b')
-			{
-				count += print_binary(ap);
-			}
-		}
-		format++;
+		count += print_character(ap);
 	}
+	else if (*format == 's')
+	{
+		count += print_string(ap);
+	}
+	else if (*format == '%')
+	{
+		count += my_putchar('%');
+	}
+	else if (*format == 'd' || *format == 'i')
+	{
+		count += print_decint(ap);
+	}
+	else if (*format == 'b')
+	{
+		count += print_binary(ap);
+	}
+
+
 	return (count);
+
 }
