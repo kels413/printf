@@ -7,7 +7,7 @@ This is a custom implementation of the `printf` function created as part of the 
 ## Collaborators Github.
 
 - **Okoye Kelvin** - [Github Profile](https://github.com/kels413)
-- **Afia Yeboah** - [GitHub Profile](https://github.com/afiayeboah)
+- **Afia Yeboah A** - [GitHub Profile](https://github.com/afiayeboah)
 
 
 ## Table of Contents
